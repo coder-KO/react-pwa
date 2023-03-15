@@ -14,7 +14,7 @@ const App = () => {
         color: "#05EDFE",
       }}
     >
-      <img src="/icons/logoBg.png" alt="React PWA" width="240" height="auto" />
+      <img src="icons/logoBg.png" alt="React PWA" width="240" height="auto" />
       <h1>React PWA</h1>
     </div>
   );
