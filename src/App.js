@@ -33,6 +33,13 @@ const App = () => {
         Barebone React PWA structure
       </p>
 
+      <style>{`
+        @keyframes slide-up {
+          from { transform: translateY(100%); }
+          to { transform: translateY(0); }
+        }
+      `}</style>
+
       <InstallPrompt />
       <UpdatePrompt />
     </div>

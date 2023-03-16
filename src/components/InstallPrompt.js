@@ -6,7 +6,9 @@ const InstallPrompt = () => {
 
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
-    setDeferredPrompt(e);
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      setDeferredPrompt(e);
+    }
   });
 
   const handleInstallClick = () => {
@@ -23,6 +25,10 @@ const InstallPrompt = () => {
     }
   };
 
+  const handleCloseClick = () => {
+    setDeferredPrompt(null);
+  };
+
   return (
     <div>
       {deferredPrompt && (
@@ -34,13 +40,27 @@ const InstallPrompt = () => {
             right: 0,
             backgroundColor: "#fff",
             padding: "16px",
-            borderTopLeftRadius: "16px",
-            borderTopRightRadius: "16px",
+            borderTopLeftRadius: "32px",
+            borderTopRightRadius: "32px",
             boxShadow: "0 -2px 4px rgba(0,0,0,.1)",
             animationName: "slide-up",
-            animationDuration: ".75s",
+            animationDuration: "1s",
           }}
         >
+          <button
+            onClick={handleCloseClick}
+            style={{
+              position: "absolute",
+              top: "0px",
+              right: "0px",
+              border: "none",
+              cursor: "pointer",
+              background: "transparent",
+              margin: "8px 16px 0 0",
+            }}
+          >
+            <span style={{ fontSize: 18 }}>&#10006;</span>
+          </button>
           <div
             style={{
               display: "flex",
@@ -49,7 +69,7 @@ const InstallPrompt = () => {
           >
             <img
               src={logo}
-              alt='Logo'
+              alt="Logo"
               style={{
                 height: "7.5vh",
                 width: "auto",
