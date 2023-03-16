@@ -1,4 +1,7 @@
 import React from "react";
+import logo from "./assets/logoBg.png";
+import InstallPrompt from "./components/InstallPrompt";
+import UpdatePrompt from "./components/UpdatePrompt";
 
 const App = () => {
   return (
@@ -11,11 +14,27 @@ const App = () => {
         justifyContent: "center",
         alignItems: "center",
         background: "#2B2B2B",
-        color: "#05EDFE",
       }}
     >
-      <img src="icons/logoBg.png" alt="React PWA" width="240" height="auto" />
-      <h1>React PWA</h1>
+      <img
+        src={logo}
+        alt="React PWA"
+        style={{ width: "50%", height: "auto", maxWidth: 300 }}
+      />
+      <h1
+        style={{
+          color: "#05EDFE",
+          margin: 0,
+        }}
+      >
+        React PWA
+      </h1>
+      <p style={{ color: "#fff", marginTop: 2 }}>
+        Barebone React PWA structure
+      </p>
+
+      <InstallPrompt />
+      <UpdatePrompt />
     </div>
   );
 };
