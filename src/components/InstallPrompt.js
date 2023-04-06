@@ -59,7 +59,7 @@ const InstallPrompt = () => {
               margin: "8px 16px 0 0",
             }}
           >
-            <span style={{ fontSize: 18 }}>&#10006;</span>
+            <span style={{ fontSize: 18, fontWeight: 600 }}>&#10006;</span>
           </button>
           <div
             style={{

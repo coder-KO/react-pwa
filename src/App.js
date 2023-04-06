@@ -1,9 +1,30 @@
 import React from "react";
 import logo from "./assets/logoBg.png";
 import InstallPrompt from "./components/InstallPrompt";
-import UpdatePrompt from "./components/UpdatePrompt";
+// import UpdatePrompt from "./components/UpdatePrompt";
 
 const App = () => {
+  const [updateAvailable, setUpdateAvailable] = React.useState(false);
+
+  React.useEffect(() => {
+    // listen for messages from the service worker
+    navigator.serviceWorker.addEventListener("message", (event) => {
+      if (event.data && event.data.type === "UPDATE_AVAILABLE") {
+        setUpdateAvailable(true);
+      }
+    });
+  }, []);
+
+  // render the modal if an update is available
+  const modal = updateAvailable && (
+    <div className="modal">
+      <div className="modal-content">
+        <p>A new version of the app is available. Please refresh the page.</p>
+        <button onClick={() => window.location.reload()}>Refresh</button>
+      </div>
+    </div>
+  );
+
   return (
     <div
       style={{
@@ -30,7 +51,7 @@ const App = () => {
         React PWA
       </h1>
       <p style={{ color: "#fff", marginTop: 2 }}>
-        Barebone React PWA structure
+        Barebone structure for a PWA using React.
       </p>
 
       <style>{`
@@ -41,7 +62,8 @@ const App = () => {
       `}</style>
 
       <InstallPrompt />
-      <UpdatePrompt />
+      {/* <UpdatePrompt /> */}
+      {modal}
     </div>
   );
 };
