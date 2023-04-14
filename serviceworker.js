@@ -1,4 +1,4 @@
-const VERSION = "1.1.34";
+const swVersion = window.VERSION;
 
 const CACHE_NAME = "react-pwa";
 const urlsToCache = ["index.html", "offline.html"];
