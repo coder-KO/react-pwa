@@ -6,10 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offline | Luminox</title>
+
+    <style>
+        /* Center align the page contents */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        /* Container for the offline page */
+        .offline-container {
+            text-align: center;
+        }
+
+        /* Offline image */
+        .offline-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Offline text */
+        .offline-text {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Refresh button */
+        .refresh-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Add responsive styles */
+        @media (max-width: 768px) {
+            .offline-text {
+                font-size: 16px;
+            }
+
+            .refresh-button {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h2>You are offline</h2>
+    <div class="offline-container">
+        <img src="offline_image.png" alt="Offline Image" class="offline-image">
+        <p class="offline-text">You are currently offline.</p>
+        <button class="refresh-button" onclick="location.reload()">Refresh</button>
+    </div>
 </body>
 
 </html>
