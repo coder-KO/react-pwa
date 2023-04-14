@@ -49,6 +49,13 @@
             border-radius: 5px;
         }
 
+        .status {
+            color: aquamarine;
+            font-size: 16px;
+            font-family: 'Courier New', Courier, monospace;
+            display: none;
+        }
+
         /* Add responsive styles */
         @media (max-width: 768px) {
             .offline-text {
@@ -78,7 +85,16 @@
 
         <p class="offline-text">You are currently offline! <br />Check your internet connection and try again.</p>
         <button class="refresh-button" onclick="location.reload()">Refresh</button>
+        <p id="status" class="status">
+            Your are now back online!
+        </p>
     </div>
+
+    <script>
+        window.addEventListener("online", () => {
+            document.getElementById("status").style.display = "block";
+        });
+    </script>
 </body>
 
 </html>
