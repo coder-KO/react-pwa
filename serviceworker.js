@@ -1,4 +1,4 @@
-const VERSION = "1.1.45";
+const VERSION = "1.1.46";
 
 const CACHE_NAME = "react-pwa";
 const urlsToCache = ["offline.html"];
