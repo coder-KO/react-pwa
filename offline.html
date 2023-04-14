@@ -15,6 +15,7 @@
             margin: 0;
             display: grid;
             place-items: center;
+            background-color: #282c34;
         }
 
         /* Container for the offline page */
@@ -30,9 +31,10 @@
 
         /* Offline text */
         .offline-text {
-            margin-top: 20px;
+            margin-top: 8px;
             font-size: 18px;
-            color: #333;
+            color: #E6E7E8;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
 
         /* Refresh button */
@@ -41,7 +43,7 @@
             padding: 10px 20px;
             font-size: 16px;
             color: #fff;
-            background-color: #007bff;
+            background-color: #1965DD;
             border: none;
             cursor: pointer;
             border-radius: 5px;
@@ -62,8 +64,8 @@
 
 <body>
     <div class="offline-container">
-        <img src="%PUBLIC_URL%/offline_image.png" alt="Offline Image" class="offline-image">
-        <p class="offline-text">You are currently offline.</p>
+        <img src="./offline_image.png" alt="Offline Image" class="offline-image">
+        <p class="offline-text">You are currently offline! <br />Check your internet connection and try again.</p>
         <button class="refresh-button" onclick="location.reload()">Refresh</button>
     </div>
 </body>
