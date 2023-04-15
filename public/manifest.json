@@ -1,6 +1,6 @@
 {
   "short_name": "React PWA",
-  "name": "React PWA",
+  "name": "React PWAs",
   "icons": [
     {
       "src": "favicon.ico",
@@ -23,6 +23,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#2B2B2B",
-  "background_color": "#2B2B2B"
+  "theme_color": "#282c34",
+  "background_color": "#61dafb"
 }

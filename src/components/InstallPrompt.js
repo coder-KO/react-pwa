@@ -6,7 +6,10 @@ const InstallPrompt = () => {
 
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
-    if (window.matchMedia("(max-width: 1023px)").matches) {
+    if (
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.matchMedia("(max-width: 767px)").matches
+    ) {
       setDeferredPrompt(e);
     }
   });
@@ -25,7 +28,7 @@ const InstallPrompt = () => {
     }
   };
 
-  const handleCloseClick = () => {
+  const handleDismissClick = () => {
     setDeferredPrompt(null);
   };
 
@@ -40,51 +43,51 @@ const InstallPrompt = () => {
             right: 0,
             backgroundColor: "#fff",
             padding: "16px",
-            borderTopLeftRadius: "32px",
-            borderTopRightRadius: "32px",
+            borderTopLeftRadius: "16px",
+            borderTopRightRadius: "16px",
             boxShadow: "0 -2px 4px rgba(0,0,0,.1)",
             animationName: "slide-up",
-            animationDuration: "1s",
+            animationDuration: ".75s",
           }}
         >
-          <button
-            onClick={handleCloseClick}
-            style={{
-              position: "absolute",
-              top: "0px",
-              right: "0px",
-              border: "none",
-              cursor: "pointer",
-              background: "transparent",
-              margin: "8px 16px 0 0",
-            }}
-          >
-            <span style={{ fontSize: 18, fontWeight: 600 }}>&#10006;</span>
-          </button>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src={logo}
-              alt="Logo"
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div
               style={{
-                height: "7.5vh",
-                width: "auto",
-                borderRadius: "50%",
-                marginRight: 16,
+                display: "flex",
+                alignItems: "center",
               }}
-            />
-            <div>
-              <h3 style={{ marginBottom: 2, marginTop: 0 }}>
-                Install React PWA
-              </h3>
-              <button onClick={handleInstallClick}>
-                Install <span style={{ fontWeight: 600 }}>&#8681;</span>
-              </button>
+            >
+              <img
+                src={logo}
+                alt="Logo"
+                style={{
+                  height: "7.5vh",
+                  width: "auto",
+                  borderRadius: "50%",
+                  marginRight: 16,
+                }}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                }}
+              >
+                <h3 style={{ marginBottom: 2, marginTop: 0 }}>
+                  Install React PWA
+                </h3>
+                <button onClick={handleInstallClick}>
+                  Install <span style={{ fontWeight: 600 }}>&#8681;</span>
+                </button>
+              </div>
             </div>
+            <span
+              onClick={handleDismissClick}
+              style={{ height: 20, cursor: "pointer", fontWeight: 600 }}
+            >
+              &#10005;
+            </span>
           </div>
         </div>
       )}
